@@ -185,9 +185,6 @@ autocmd FileType php iab <? <?php
 " |  CSS                                                                 |
 " +----------------------------------------------------------------------+
 autocmd FileType css setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
-if exists("+omnifunc")
-  autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-endif
 
 
 " +----------------------------------------------------------------------+
@@ -208,10 +205,6 @@ autocmd FileType vim setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
 " +----------------------------------------------------------------------+
 autocmd FileType javascript setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
 autocmd FileType javascript let javascript_enable_domhtmlcss=1
-if exists("+omnifunc")
-  autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-endif
-
 
 " +----------------------------------------------------------------------+
 " |  D                                                                   |
@@ -222,9 +215,6 @@ autocmd FileType d setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=2
 " +----------------------------------------------------------------------+
 " |  HTML                                                                |  
 " +----------------------------------------------------------------------+
-if exists("+omnifunc")
-  autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-endif
 autocmd FileType html map <F9> :%! tidy -i -f /tmp/htmlerrors.txt<CR>
 autocmd FileType html map <F8> :%! html2text -utf8<CR>
 
@@ -232,9 +222,6 @@ autocmd FileType html map <F8> :%! html2text -utf8<CR>
 " +----------------------------------------------------------------------+
 " |  XML, XSLT                                                           |
 " +----------------------------------------------------------------------+
-if exists("+omnifunc")
-  autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
-endif
 " validate xml -- needs libxml2-utils
 autocmd FileType xml map <F10> :! xmllint --valid --noout %<CR>
 autocmd FileType xslt map <F10> :! xmllint --valid --noout %<CR>
@@ -246,16 +233,12 @@ autocmd FileType xslt map <F9> :%! xmllint --format --nowarning --recover -<CR>
 " +----------------------------------------------------------------------+
 " |  SQL                                                                 | 
 " +----------------------------------------------------------------------+
-if exists("+omnifunc")
-  autocmd FileType sql set omnifunc=sqlcomplete#Complete
-endif
 
 autocmd FileType sql iab fnc 
 \<CR>/**
 \<CR>* Description 
 \<CR>* 
-\<CR>* Copyright  2010 geOps
-\<CR>* License    http://www.geops.de/license.txt
+\<CR>* Copyright  2012 geOps
 \<CR>* Bug        Bug 666
 \<CR>* Link       http://www.geops.de 
 \<CR>**/
@@ -272,9 +255,6 @@ autocmd FileType sql set nobomb
 " +----------------------------------------------------------------------+
 " |  C                                                                   |
 " +----------------------------------------------------------------------+
-if exists("+omnifunc")
-  autocmd FileType c set omnifunc=ccomplete#Complete
-endif
 
 
 " +----------------------------------------------------------------------+
@@ -319,12 +299,12 @@ let NERDTreeIgnore=['\.o$', '\~$', '\.pyc$']
 " 
 "
 
-if has("autocmd") && exists("+omnifunc")
-  autocmd Filetype *
-  \       if &omnifunc == "" |
-  \               setlocal omnifunc=syntaxcomplete#Complete |
-  \       endif
-endif
+" if has("autocmd") && exists("+omnifunc")
+"  autocmd Filetype *
+"  \       if &omnifunc == "" |
+"  \               setlocal omnifunc=syntaxcomplete#Complete |
+"  \       endif
+" endif
 
 
 function FormatXml()
