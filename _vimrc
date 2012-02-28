@@ -83,8 +83,11 @@ set smartcase                   " ... unless they contain at least one capital l
 "    autocmd FileType help,make match BadSpacing /  *$/
 "augroup END
 
+set ruler "Always show current position
 
-
+" No sound on errors
+set noerrorbells
+set novisualbell
 
 filetype on
 filetype plugin on
