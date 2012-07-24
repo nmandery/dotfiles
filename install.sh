@@ -20,4 +20,27 @@ for SFILE in $(ls -1 "./" | grep '^_'); do
     ln -s "$PWD/$SFILE" "$TARGET_FULL"
 done
 
+# add own bashrc to the existing ~/.bashrc + delete existing
+# bashrc_nmandery inclusion
+[ -f ~/.bashrc ] || touch ~/.bashrc
+
+sed -i '/dotfiles nmandery start/,/dotfiles nmandery end/d' ~/.bashrc
+cat >>~/.bashrc <<EOF
+# dotfiles nmandery start
+[ -f ~/.bashrc_nmandery ] && . ~/.bashrc_nmandery
+# dotfiles nmandery end
+EOF
+
+# add own zshrc to the existing ~/.zshrc + delete existing
+# zshrc_nmandery inclusion
+[ -f ~/.zshrc ] || touch ~/.zshrc
+
+sed -i '/dotfiles nmandery start/,/dotfiles nmandery end/d' ~/.zshrc
+cat >>~/.zshrc <<EOF
+# dotfiles nmandery start
+[ -f ~/.zshrc_nmandery ] && . ~/.zshrc_nmandery
+# dotfiles nmandery end
+EOF
+
+
 popd >/dev/null
