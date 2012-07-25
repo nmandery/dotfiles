@@ -20,11 +20,10 @@ if has("gui_running")
   set tb=
   set guioptions-=T
 
-  colorscheme fruity
   "set guifont=Monaco:h12
-else
-   colorscheme desert
 endif
+
+colorscheme desert
 
 " utf-8 default encoding
 " ----------------------
