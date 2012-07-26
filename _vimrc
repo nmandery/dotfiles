@@ -39,9 +39,6 @@ map <F12> :!cp % %.bak_at_$(date +"\%H\%M\%S")<CR><CR>
 " remove excess space at line endings
 map <F11> :%s/[ \t]*$//g<CR>:noh<CR>
 
-" nerdtree plugin http://www.vim.org/scripts/script.php?script_id=1658
-map <F2> :NERDTreeToggle<cr>
-
 " taglist plugin http://sourceforge.net/projects/vim-taglist/files/
 map <F3> :TlistToggle<cr>
 
@@ -315,9 +312,11 @@ au BufRead,BufNewFile *.go            setfiletype go
 
 "
 " NERDTree config
+" nerdtree plugin http://www.vim.org/scripts/script.php?script_id=1658
 "
 " ignore some file types
 let NERDTreeIgnore=['\.o$', '\~$', '\.pyc$']
+map <F2> :NERDTreeToggle<cr>
 
 
 " 
@@ -337,7 +336,6 @@ function FormatXml()
     normal gg=G
 endfunction
 command FormatXml :call FormatXml()
-
 
 
 " ack plugin
