@@ -113,9 +113,11 @@ autocmd BufNewFile,BufRead fabfile setlocal ft=python
 
 " syntax checking
 "autocmd FileType python setlocal makeprg=python\ -c\ \"import\ py_compile,sys;\ sys.stderr=sys.stdout;\ py_compile.compile(r'%')\"
-autocmd FileType python setlocal makeprg=pyflakes\ %
-autocmd FileType python setlocal efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
-autocmd FileType python map <F10> :make<CR>
+if executable("pyflakes")
+    autocmd FileType python setlocal makeprg=pyflakes\ %
+    autocmd FileType python setlocal efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
+    autocmd FileType python map <F10> :make<CR>
+endif
 
 " header for python scripts
 autocmd FileType python iab hdr 
@@ -135,12 +137,16 @@ if exists("+omnifunc")
 endif
 
 " syntax checking
-autocmd FileType php setlocal makeprg=php\ -l\ %
-autocmd FileType php setlocal errorformat=%m\ in\ %f\ on\ line\ %l
-autocmd FileType php map <F10> :make<CR>
+if executable("php")
+    autocmd FileType php setlocal makeprg=php\ -l\ %
+    autocmd FileType php setlocal errorformat=%m\ in\ %f\ on\ line\ %l
+    autocmd FileType php map <F10> :make<CR>
+endif
 
 " phpmd
-autocmd FileType php map <F9> :! phpmd % text codesize,unusedcode,naming<CR>
+if executable("phpmd")
+    autocmd FileType php map <F9> :! phpmd % text codesize,unusedcode,naming<CR>
+endif
 
 " tab settings for php
 autocmd FileType php setlocal shiftwidth=4 tabstop=4 softtabstop=4
@@ -222,19 +228,24 @@ autocmd FileType d setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=2
 " +----------------------------------------------------------------------+
 " |  HTML                                                                |  
 " +----------------------------------------------------------------------+
-autocmd FileType html map <F9> :%! tidy -i -f /tmp/htmlerrors.txt<CR>
-autocmd FileType html map <F8> :%! html2text -utf8<CR>
-
+if executable("tidy")
+    autocmd FileType html map <F9> :%! tidy -i -f /tmp/htmlerrors.txt<CR>
+endif
+if executable("html2text")
+    autocmd FileType html map <F8> :%! html2text -utf8<CR>
+endif
 
 " +----------------------------------------------------------------------+
 " |  XML, XSLT                                                           |
 " +----------------------------------------------------------------------+
 " validate xml -- needs libxml2-utils
-autocmd FileType xml map <F10> :! xmllint --valid --noout %<CR>
-autocmd FileType xslt map <F10> :! xmllint --valid --noout %<CR>
-" format xml -- needs libxml2-utils
-autocmd FileType xml map <F9> :%! xmllint --format --nowarning --recover -<CR>
-autocmd FileType xslt map <F9> :%! xmllint --format --nowarning --recover -<CR>
+if executable("xmllint")
+    autocmd FileType xml map <F10> :! xmllint --valid --noout %<CR>
+    autocmd FileType xslt map <F10> :! xmllint --valid --noout %<CR>
+    " format xml -- needs libxml2-utils
+    autocmd FileType xml map <F9> :%! xmllint --format --nowarning --recover -<CR>
+    autocmd FileType xslt map <F9> :%! xmllint --format --nowarning --recover -<CR>
+endif
 
 
 " +----------------------------------------------------------------------+
@@ -242,7 +253,9 @@ autocmd FileType xslt map <F9> :%! xmllint --format --nowarning --recover -<CR>
 " +----------------------------------------------------------------------+
 
 " format depends on psqlchunks
-autocmd FileType sql map <F9> :%! psqlchunks -F echo  -<CR>
+if executable("psqlchunks")
+    autocmd FileType sql map <F9> :%! psqlchunks -F echo  -<CR>
+endif
 
 autocmd FileType sql iab fnc 
 \<CR>/**
@@ -270,8 +283,9 @@ autocmd FileType sql set nobomb
 " +----------------------------------------------------------------------+
 " |  Lua                                                                 |
 " +----------------------------------------------------------------------+
-
-autocmd FileType lua map <F10> :!luac -p %<CR>
+if executable("luac")
+    autocmd FileType lua map <F10> :!luac -p %<CR>
+endif
 
 
 " +----------------------------------------------------------------------+
