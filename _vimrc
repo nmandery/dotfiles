@@ -241,6 +241,9 @@ autocmd FileType xslt map <F9> :%! xmllint --format --nowarning --recover -<CR>
 " |  SQL                                                                 | 
 " +----------------------------------------------------------------------+
 
+" format depends on psqlchunks
+autocmd FileType sql map <F9> :%! psqlchunks -F echo  -<CR>
+
 autocmd FileType sql iab fnc 
 \<CR>/**
 \<CR>* Description 
