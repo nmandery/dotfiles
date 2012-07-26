@@ -145,6 +145,11 @@ autocmd FileType php map <F9> :! phpmd % text codesize,unusedcode,naming<CR>
 " tab settings for php
 autocmd FileType php setlocal shiftwidth=4 tabstop=4 softtabstop=4
 
+" drupal filename extensions
+"au BufRead,BufNewFile *.inc               setfiletype php
+"au BufRead,BufNewFile *.install           setfiletype php
+"au BufRead,BufNewFile *.module            setfiletype php
+
 " abbrewations. important: space after name. i.e. 'iab X '
 autocmd FileType php iab cls 
 \<CR>/**
