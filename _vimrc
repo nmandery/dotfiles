@@ -19,8 +19,6 @@ if has("gui_running")
   "switch toolbar off
   set tb=
   set guioptions-=T
-
-  "set guifont=Monaco:h12
 endif
 
 colorscheme desert
@@ -341,3 +339,16 @@ command FormatXml :call FormatXml()
 " ack plugin
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
+" line numbering relative to current line
+" use Ctrl+L to toggle the line number counting method
+function! g:ToggleNuMode()
+  if &nu == 1
+     set rnu
+  else
+     set nu
+  endif
+endfunction
+nnoremap <silent><C-L> :call g:ToggleNuMode()<cr>
+
+" show line numbers
+set number
