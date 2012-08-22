@@ -352,3 +352,4 @@ nnoremap <silent><C-L> :call g:ToggleNuMode()<cr>
 
 " show line numbers
 set number
+set rnu
