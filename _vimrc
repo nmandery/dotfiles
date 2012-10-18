@@ -348,8 +348,10 @@ function! g:ToggleNuMode()
      set nu
   endif
 endfunction
-nnoremap <silent><C-L> :call g:ToggleNuMode()<cr>
 
 " show line numbers
 set number
-set rnu
+if has('rnu')
+    set rnu
+    nnoremap <silent><C-L> :call g:ToggleNuMode()<cr>
+endif
