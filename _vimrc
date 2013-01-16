@@ -126,6 +126,7 @@ autocmd FileType python iab hdr
 " |  php support                                                         |
 " +----------------------------------------------------------------------+
 autocmd BufNewFile,BufRead *.phtml setlocal ft=php
+autocmd BufNewFile,BufRead *.phpt setlocal ft=php
 autocmd BufNewFile,BufRead *.php.dist setlocal ft=php
 if exists("+omnifunc")
   autocmd FileType php set omnifunc=phpcomplete#CompletePHP
