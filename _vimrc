@@ -57,6 +57,9 @@ set backspace=indent,eol,start
 set expandtab " real tabs please!
 set nowrap " do not wrap lines  
 set smarttab " use tabs at the start of a line, spaces elsewhere
+set modeline " enable modelines - allows storing vim settings in the files edited.
+" modeline example (to be stored in a comment block ):
+" // vim: tabstop=2 shiftwidth=2 
 
 
 "" Searching
