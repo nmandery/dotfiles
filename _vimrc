@@ -1,6 +1,13 @@
 
 "
+" Stuff to remember
+" =================
+"
+" Autocomplete: ctrl-p or ctrl-n for a menu
+" Convert tabs -> spaces: :retab
+"
 " Links:
+" -----
 " - http://mislav.uniqpath.com/2011/12/vim-revisited/
 
 
