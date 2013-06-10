@@ -96,6 +96,11 @@ set novisualbell
 filetype on
 filetype plugin on
 
+" autocomlete on tab-press for vim commands (like :e)
+set wildmenu
+set wildmode=list:longest,full
+set wildignore=*.o,*~,*.pyc,*.pyo,*.so,*.sw*,__pycache__
+
 
 " +----------------------------------------------------------------------+
 " |  python support                                                      |
