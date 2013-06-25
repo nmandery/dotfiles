@@ -89,6 +89,9 @@ set smartcase                   " ... unless they contain at least one capital l
 
 set ruler "Always show current position
 
+" Match version control conflict markers.
+match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+
 " No sound on errors
 set noerrorbells
 set novisualbell
