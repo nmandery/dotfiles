@@ -12,5 +12,6 @@ bind 'set bell-style none'
 # add go to path
 if [ -d /opt/install/go ]; then
     export GOROOT=/opt/install/go
+    export GOPATH=/opt/install/gopath
     export PATH=$PATH:"$GOROOT/bin"
 fi
