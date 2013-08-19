@@ -15,3 +15,7 @@ if [ -d /opt/install/go ]; then
     export GOPATH=/opt/install/gopath
     export PATH=$PATH:"$GOROOT/bin"
 fi
+
+# the default editor
+export EDITOR=vim
+export SVN_EDITOR=$EDITOR
