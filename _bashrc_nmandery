@@ -19,3 +19,12 @@ fi
 # the default editor
 export EDITOR=vim
 export SVN_EDITOR=$EDITOR
+
+
+# fix java swing guis in awesomewm
+# http://stackoverflow.com/questions/721215/how-can-i-fix-a-java-gui-program-swing-that-it-works-with-awesome-wm
+# requires "wmname" from suckless
+WMNAME=$(which wmname || echo "")
+if [ "$WMNAME" != "" ]; then
+    $WMNAME LG3D
+fi
