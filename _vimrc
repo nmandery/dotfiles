@@ -105,6 +105,30 @@ set wildmode=list:longest,full
 set wildignore=*.o,*~,*.pyc,*.pyo,*.so,*.sw*,__pycache__
 
 
+" rainbow_parentheses
+" https://github.com/kien/rainbow_parentheses.vim
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['black',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+let g:rbpt_max = 16
+let g:rbpt_loadcmd_toggle = 0
+
+
 " +----------------------------------------------------------------------+
 " |  python support                                                      |
 " +----------------------------------------------------------------------+
@@ -326,6 +350,18 @@ autocmd BufNewFile,BufRead *.ini.dist setlocal ft=dosini
 " +----------------------------------------------------------------------+
 au BufRead,BufNewFile *.go            setfiletype go
 
+" +----------------------------------------------------------------------+
+" |  clojure language                                                    |
+" +----------------------------------------------------------------------+
+au BufRead,BufNewFile *.clj           setfiletype clojure
+autocmd FileType clojure RainbowParenthesesLoadRound
+autocmd FileType clojure RainbowParenthesesLoadBraces
+autocmd FileType clojure RainbowParenthesesLoadSquare
+autocmd FileType clojure RainbowParenthesesToggle
+
+
+
+
 
 "
 " NERDTree config
@@ -374,3 +410,5 @@ if has('rnu')
     set rnu
     nnoremap <silent><C-L> :call g:ToggleNuMode()<cr>
 endif
+
+
