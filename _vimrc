@@ -415,6 +415,7 @@ autocmd FileType clojure RainbowParenthesesLoadRound
 autocmd FileType clojure RainbowParenthesesLoadBraces
 autocmd FileType clojure RainbowParenthesesLoadSquare
 autocmd FileType clojure RainbowParenthesesToggle
+autocmd FileType clojure setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
 
 
 
