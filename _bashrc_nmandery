@@ -1,9 +1,16 @@
 # vi mode command line editing (enter VI mode using ESC)
 set -o vi
 
+export GIT_PS1_SHOWDIRTYSTATE=1
+
 # colored prompt
-#           |------- user@host ------------|  |----- directory -----------| |---- nonzero returncodes -------|
-export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]: \[\033[01;34m\]\w\[\033[00m\] \[\033[01;31m\]${?##0}\[\033[00m\] \$ '
+# the git branch depends on bash_completion which should be sourced before. on debian
+# it is normally added to ~/.bashrc. Otherwise add
+# if [ -f /etc/bash_completion ]; then
+# . /etc/bash_completion
+# fi
+#           |------- user@host ------------|  |----- directory -----------| |---- nonzero returncodes -------| |--------- git branch ----------------|
+export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]: \[\033[01;34m\]\w\[\033[00m\] \[\033[01;31m\]${?##0}\[\033[00m\] \[\033[00;33m\]$(__git_ps1)\[\033[00m\]\n\$ '
 
 # disable visual bell. This setting should be placed in ~/.inputrc, calling bind with
 # the setting as parameter will also work
