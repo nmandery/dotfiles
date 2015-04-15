@@ -2,3 +2,8 @@ hardstatus alwayslastline
 hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B}%Y-%m-%d %{W}%c %{g}]'
 altscreen on
 
+# allow scrolling
+# http://superuser.com/questions/138748/how-to-scroll-up-and-look-at-data-in-gnu-screen
+termcapinfo xterm ti@:te@
+termcapinfo xterm-color ti@:te@
+
