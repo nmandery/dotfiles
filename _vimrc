@@ -92,9 +92,11 @@ set ruler "Always show current position
 " Match version control conflict markers.
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
-" No sound on errors
-set noerrorbells
-set novisualbell
+" No sound on errors and no visual flashes
+set noerrorbells visualbell t_vb=
+if has('autocmd')
+    autocmd GUIEnter * set visualbell t_vb=
+endif
 
 filetype on
 filetype plugin on
