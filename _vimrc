@@ -217,7 +217,7 @@ endif
 
 " header for python scripts
 autocmd FileType python iab hdr 
-\<CR>#!/usr/bin/env python
+\#!/usr/bin/env python
 \<CR># -*- coding: utf-8 -*-
 \<CR>"""
 \<CR>... desription of file ...
