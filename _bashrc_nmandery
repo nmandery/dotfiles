@@ -20,7 +20,7 @@ bind 'set bell-style none'
 if [ -d /opt/install/go ]; then
     export GOROOT=/opt/install/go
     export GOPATH=/opt/install/gopath
-    export PATH=$PATH:"$GOROOT/bin"
+    export PATH=$PATH:"$GOROOT/bin:$GOPATH/bin"
 fi
 
 # the default editor
