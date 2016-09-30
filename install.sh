@@ -47,13 +47,15 @@ EOF
 # add binaries
 BINDIR=~/bin
 [ -d "$BINDIR" ] || mkdir "$BINDIR"
-for BINFILE in $(find "$SCRIPT_DIR/bin" -executable -type f); do
-    BINBASENAME=$(basename "$BINFILE")
-    if [ ! -f "$BINDIR/$BINBASENAME" ]; then
-        echo "linking executable $BINBASENAME to $BINDIR."
-        ln -s "$BINFILE" "$BINDIR/$BINBASENAME"
-    else
-        echo "executable $BINBASENAME is already linked to $BINDIR. skipping."
+for BINFILE in $(find "$SCRIPT_DIR/bin" -type f); do
+    if [ -x "$BINFILE" ]; then
+        BINBASENAME=$(basename "$BINFILE")
+        if [ ! -f "$BINDIR/$BINBASENAME" ]; then
+            echo "linking executable $BINBASENAME to $BINDIR."
+            ln -s "$BINFILE" "$BINDIR/$BINBASENAME"
+        else
+            echo "executable $BINBASENAME is already linked to $BINDIR. skipping."
+        fi
     fi
 done
 
