@@ -39,3 +39,13 @@ WMNAME=$(which wmname 2>/dev/null || echo "")
 if [ "$WMNAME" != "" ]; then
     $WMNAME LG3D
 fi
+
+function sleep_until() {
+    # http://stackoverflow.com/questions/645992/bash-sleep-until-a-specific-time-date
+    # examples:
+    #   'next week'
+    #   '1 hour'
+    #   '8:40'
+    _TSTAMP="$1"
+    sleep $(expr `date -d "$_TSTAMP" +%s` - `date -d 'now' +%s`)
+}
