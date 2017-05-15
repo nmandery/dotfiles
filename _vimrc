@@ -408,6 +408,7 @@ autocmd BufNewFile,BufRead *.ini.dist setlocal ft=dosini
 " |  go language                                                         |
 " +----------------------------------------------------------------------+
 au BufRead,BufNewFile *.go            setfiletype go
+autocmd FileType go setlocal noet ts=4 sw=4 sts=4
 
 " +----------------------------------------------------------------------+
 " |  clojure language                                                    |
