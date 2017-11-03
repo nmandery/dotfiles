@@ -1,0 +1,4 @@
+#!/bin/bash
+# remove the orientation exif metadata
+
+exiftool -Orientation=1 -n "$@"
