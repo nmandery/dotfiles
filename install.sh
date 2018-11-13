@@ -6,13 +6,12 @@ SCRIPT_DIR=$(dirname $0)
 pushd "$SCRIPT_DIR" >/dev/null
 SCRIPT_DIR=$(pwd)
 
-
 for SFILE in $(ls -1 "./" | grep '^_'); do
     TARGET_FILE=$(echo "$SFILE" | sed 's/^_/./g')
     TARGET_FULL="$HOME/$TARGET_FILE"
     echo "$SFILE"
     if [ -L "$TARGET_FULL" ]; then
-        rm "$TARGET_FULL"
+        rm -rf "$TARGET_FULL"
     fi
     if [ -e "$TARGET_FULL" ]; then
         echo "$HOME/$TARGET_FILE exits. creating a backup"
@@ -20,6 +19,11 @@ for SFILE in $(ls -1 "./" | grep '^_'); do
     fi
     ln -s "$PWD/$SFILE" "$TARGET_FULL"
 done
+
+mkdir -p $HOME/.config/i3
+ln -sf $SCRIPT_DIR/config/i3/config $HOME/.config/i3
+mkdir -p $HOME/.config/i3status
+ln -sf $SCRIPT_DIR/config/i3status/config $HOME/.config/i3status
 
 # add own bashrc to the existing ~/.bashrc + delete existing
 # bashrc_nmandery inclusion
@@ -42,6 +46,7 @@ cat >>~/.zshrc <<EOF
 [ -f ~/.zshrc_nmandery ] && . ~/.zshrc_nmandery
 # dotfiles nmandery end
 EOF
+
 
 
 # add binaries
