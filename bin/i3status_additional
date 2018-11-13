@@ -81,6 +81,10 @@ if __name__ == '__main__':
                 'name' : 'keyboard',
                 #'color': '#FFFF00'
         })
+        j.insert(0, {
+                'full_text': '🌳🌲🦌🌳🌲',
+                'name': 'forest'
+        })
         # and echo back new encoded json
         print_line(prefix+json.dumps(j))
 
