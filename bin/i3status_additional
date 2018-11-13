@@ -28,7 +28,6 @@ import json
 import subprocess
 
 def get_keyboard():
-    """ Get the current governor for cpu0, assuming all CPUs use the same. """
     kb_layout = "?"
     kb_variant = "?"
 
@@ -42,6 +41,21 @@ def get_keyboard():
                 kb_variant = value
 
     return "{0} ({1})".format(kb_layout, kb_variant)
+
+deer_position = 0
+deer_step_direction = 1
+def get_forest():
+    global deer_position, deer_step_direction
+    deer = "🦌"
+    trees = ['🌳', '🌲'] * 3
+
+    if deer_position + deer_step_direction in (-1, len(trees) + 1):
+        deer_step_direction *= -1
+    deer_position += deer_step_direction
+
+    trees.insert(deer_position, deer)
+    return ''.join(trees)
+
 
 def print_line(message):
     """ Non-buffered printing to stdout. """
@@ -82,9 +96,8 @@ if __name__ == '__main__':
                 #'color': '#FFFF00'
         })
         j.insert(0, {
-                'full_text': '🌳🌲🦌🌳🌲',
+                'full_text': get_forest(),
                 'name': 'forest'
         })
         # and echo back new encoded json
         print_line(prefix+json.dumps(j))
-
