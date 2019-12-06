@@ -65,9 +65,27 @@ if [[ $(type -P kubectl) ]]; then
     alias k-top='k get pods --all-namespaces -o wide'
 
     function k-purge-finished-pods {
+        # delete finished pods
+        #
         for phase in Failed Succeeded; do
             echo "Purging pods with phase=$phase"
             k delete pod --field-selector=status.phase==$phase --all-namespaces
         done
+    }
+
+    function k-restart-deployment {
+        # restart-hack after https://medium.com/faun/how-to-restart-kubernetes-pod-7c702ca984c1
+        # to implement a restart by scaling down to 0 replicas and back up again
+        #
+        # usage example to restart traefik in k3s:
+        #    k-restart-deployment -n kube-system traefik
+        #
+        local n_replicas=`k get deployment "$@" -o json | jq '.status.replicas'`
+        echo "Deployment was using replicas=$n_replicas, scaling down to 0" 
+        k scale deployment "$@" --replicas=0
+        echo "Waiting a few seconds"
+        sleep 3
+        echo "Scaling back up to replicas=$n_replicas"
+        k scale deployment "$@" --replicas="$n_replicas"
     }
 fi
