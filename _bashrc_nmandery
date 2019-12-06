@@ -58,3 +58,16 @@ function sleep_until() {
     sleep $(expr `date -d "$_TSTAMP" +%s` - `date -d 'now' +%s`)
 }
 
+
+# k8s when kubectl is in $PATH
+if [[ $(type -P kubectl) ]]; then
+    alias k='sudo kubectl'
+    alias k-top='k get pods --all-namespaces -o wide'
+
+    function k-purge-finished-pods {
+        for phase in Failed Succeeded; do
+            echo "Purging pods with phase=$phase"
+            k delete pod --field-selector=status.phase==$phase --all-namespaces
+        done
+    }
+fi
