@@ -89,3 +89,9 @@ if [[ $(type -P kubectl) ]]; then
         k scale deployment "$@" --replicas="$n_replicas"
     }
 fi
+
+
+# include rustup environment when its installed
+if [ -f "$HOME/.cargo/env" ]; then
+    . $HOME/.cargo/env
+fi
