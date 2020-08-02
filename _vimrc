@@ -223,73 +223,6 @@ autocmd FileType python iab hdr
 \<CR>... desription of file ...
 \<CR>"""
 
-" +----------------------------------------------------------------------+
-" |  php support                                                         |
-" +----------------------------------------------------------------------+
-autocmd BufNewFile,BufRead *.phtml setlocal ft=php
-autocmd BufNewFile,BufRead *.phpt setlocal ft=php
-autocmd BufNewFile,BufRead *.php.dist setlocal ft=php
-if exists("+omnifunc")
-  autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-endif
-
-" syntax checking
-if executable("php")
-    autocmd FileType php setlocal makeprg=php\ -l\ %
-    autocmd FileType php setlocal errorformat=%m\ in\ %f\ on\ line\ %l
-    autocmd FileType php map <F10> :make<CR>
-endif
-
-" phpmd
-if executable("phpmd")
-    autocmd FileType php map <F9> :! phpmd % text codesize,unusedcode,naming<CR>
-endif
-
-" tab settings for php
-autocmd FileType php setlocal shiftwidth=4 tabstop=4 softtabstop=4
-
-" drupal filename extensions
-"au BufRead,BufNewFile *.inc               setfiletype php
-"au BufRead,BufNewFile *.install           setfiletype php
-"au BufRead,BufNewFile *.module            setfiletype php
-
-" abbrewations. important: space after name. i.e. 'iab X '
-autocmd FileType php iab cls 
-\<CR>/**
-\<CR>* Short description for class
-\<CR>*
-\<CR>* Long description for class (if any)...
-\<CR>*
-\<CR>* Space between paragraphs.  Lines wrap at 80 characters.  Long paragraphs are
-\<CR>*     indented with four extra spaces.  Lorem ipsum dolor sit amet,
-\<CR>*     consectetuer adipiscing elit. Phasellus ornare.  Integer luctus lectus
-\<CR>*     sed est.  Suspendisse potenti.  Aliquam nec mi. Sed nec sapien.
-\<CR>*
-\<CR>*/
-
-autocmd FileType php iab fnc 
-\<CR>/**
-\<CR>* Does something interesting
-\<CR>*
-\<CR>* @param  Place    $where  Where something interesting takes place
-\<CR>* @param  integer  $repeat How many times something interesting should happen
-\<CR>* @throws Some_Exception_Class If something interesting cannot happen
-\<CR>* @return Status
-\<CR>*/ 
-
-autocmd FileType php iab hdr 
-\<CR>/**
-\<CR>* Short description for file
-\<CR>*
-\<CR>* Long description for file (if any)...
-\<CR>*
-\<CR>* @copyright  2012 geOps
-\<CR>* @link       http://www.geops.de
-\<CR>*/
-
-" convert short tags to their long counterparts
-"autocmd FileType php iab <?= <?php echo
-autocmd FileType php iab <? <?php
 
 " +----------------------------------------------------------------------+
 " |  CSS                                                                 |
@@ -385,13 +318,6 @@ if executable("luac")
 endif
 
 
-" +----------------------------------------------------------------------+
-" |  Vala                                                                |
-" +----------------------------------------------------------------------+
-autocmd BufRead *.vala set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
-autocmd BufRead *.vapi set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
-au BufRead,BufNewFile *.vala            setfiletype vala
-au BufRead,BufNewFile *.vapi            setfiletype vala
 
 " +----------------------------------------------------------------------+
 " |  Protobuf                                                            |
@@ -449,12 +375,12 @@ map <F2> :NERDTreeToggle<cr>
 " endif
 
 
-function FormatXml()
-    %s:\(\S\)\(<[^/]\)\|\(>\)\(</\):\1\3\r\2\4:g
-    set filetype=xml
-    normal gg=G
-endfunction
-command FormatXml :call FormatXml()
+"function FormatXml()
+"    %s:\(\S\)\(<[^/]\)\|\(>\)\(</\):\1\3\r\2\4:g
+"    set filetype=xml
+"    normal gg=G
+"endfunction
+"command FormatXml :call FormatXml()
 
 
 " ack plugin
