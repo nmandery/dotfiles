@@ -96,3 +96,10 @@ ci starship
 nu <<EOF
 config set use_starship \$true
 EOF
+
+# Pueue is a command-line task management tool for sequential and parallel
+# execution of long-running tasks.
+#
+# Simply put, it's a tool that processes a queue of shell commands. On top of
+# that, there are a lot of convenience features and abstractions.
+ci pueue
