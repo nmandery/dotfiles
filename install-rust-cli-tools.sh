@@ -103,3 +103,6 @@ EOF
 # Simply put, it's a tool that processes a queue of shell commands. On top of
 # that, there are a lot of convenience features and abstractions.
 ci pueue
+
+# just is a handy way to save and run project-specific commands.
+ci just
