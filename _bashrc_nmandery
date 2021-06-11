@@ -95,3 +95,5 @@ fi
 if [ -f "$HOME/.cargo/env" ]; then
     . $HOME/.cargo/env
 fi
+
+alias ytop='echo "ytop has been superseed by btm (called bottom)'

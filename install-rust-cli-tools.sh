@@ -57,9 +57,8 @@ ci hyperfine #--git https://github.com/sharkdp/hyperfine.git
 # and blanks grouped by language.
 ci tokei # --git https://github.com/XAMPPRocky/tokei.git
 
-# ytop is an alternative to top, the built-in command-line program in
-# Unix/Linux for displaying information about processes.
-ci ytop 
+# Yet another cross-platform graphical process/system monitor.
+ci bottom
 
 # bandwhich is a CLI utility for displaying current network utilization
 # by process, connection and remote IP or hostname.
@@ -106,3 +105,9 @@ ci pueue
 
 # just is a handy way to save and run project-specific commands.
 ci just
+
+# Greps through binaries from various OSs and architectures, and colors them. 
+ci bingrep
+
+# Executes commands in response to file modifications
+ci watchexec-cli
