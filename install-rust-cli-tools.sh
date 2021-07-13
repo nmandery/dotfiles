@@ -111,3 +111,6 @@ ci bingrep
 
 # Executes commands in response to file modifications
 ci watchexec-cli
+
+# xsv is a command line program for indexing, slicing, analyzing, splitting and joining CSV files.
+ci xsv
