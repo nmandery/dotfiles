@@ -79,7 +79,7 @@ ci broot #--git https://github.com/Canop/broot.git
 # but adapted to the current era. It supports piping and filtering in a
 # way similar to awk and sed with a column view so that you can combine
 # operations like in SQL.
-ci nu --features "stable" #--git https://github.com/nushell/nushell.git
+ci nu --features "extra" #--git https://github.com/nushell/nushell.git
 
 # Half of our life is spent on navigation: files, lines, commands…
 # You need skim! It is a general fuzzy finder that saves you time.
