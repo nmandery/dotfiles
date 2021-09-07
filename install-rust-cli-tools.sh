@@ -114,3 +114,6 @@ ci watchexec-cli
 
 # xsv is a command line program for indexing, slicing, analyzing, splitting and joining CSV files.
 ci xsv
+
+# Zellij is a workspace aimed at developers, ops-oriented people and anyone who loves the terminal. At its core, it is a terminal multiplexer (similar to tmux and screen), but this is merely its infrastructure layer.
+ci zellij
