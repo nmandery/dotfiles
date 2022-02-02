@@ -97,3 +97,8 @@ if [ -f "$HOME/.cargo/env" ]; then
 fi
 
 alias ytop='echo "ytop has been superseed by btm (called bottom)'
+
+if [ -d "$HOME/go" ]; then
+    export GOPATH="$HOME/go"
+    export PATH="$GOPATH/bin:$PATH"
+fi
