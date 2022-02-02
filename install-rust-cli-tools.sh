@@ -117,3 +117,6 @@ ci xsv
 
 # Zellij is a workspace aimed at developers, ops-oriented people and anyone who loves the terminal. At its core, it is a terminal multiplexer (similar to tmux and screen), but this is merely its infrastructure layer.
 ci zellij
+
+# Hurl is a command line tool that runs HTTP requests defined in a simple plain text format.
+ci hurl 
