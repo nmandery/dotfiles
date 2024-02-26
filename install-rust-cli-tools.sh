@@ -79,7 +79,7 @@ ci broot #--git https://github.com/Canop/broot.git
 # but adapted to the current era. It supports piping and filtering in a
 # way similar to awk and sed with a column view so that you can combine
 # operations like in SQL.
-ci nu --features "extra" #--git https://github.com/nushell/nushell.git
+ci nu --features "extra,dataframe" #--git https://github.com/nushell/nushell.git
 
 # Half of our life is spent on navigation: files, lines, commands…
 # You need skim! It is a general fuzzy finder that saves you time.
@@ -92,9 +92,7 @@ ci dua-cli #--git https://github.com/Byron/dua-cli.git
 
 # The minimal, blazing-fast, and infinitely customizable prompt for any shell! 
 ci starship
-nu <<EOF
-config set use_starship \$true
-EOF
+#nu -e "config set use_starship \$true"
 
 # Pueue is a command-line task management tool for sequential and parallel
 # execution of long-running tasks.
@@ -120,3 +118,7 @@ ci zellij
 
 # Hurl is a command line tool that runs HTTP requests defined in a simple plain text format.
 #ci hurl 
+
+# Fly through your shell history. Great Scott!
+# https://github.com/cantino/mcfly
+ci mcfly
