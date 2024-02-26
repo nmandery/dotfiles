@@ -1,2 +1,7 @@
 # vi mode command line editing (enter VI mode using ESC)
 bindkey -v
+
+# include mcfly setup if its present. https://github.com/cantino/mcfly
+if [ -x "$(which mcfly)" ]; then
+    eval "$(mcfly init zsh)"
+fi

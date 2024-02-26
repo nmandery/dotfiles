@@ -102,3 +102,8 @@ if [ -d "$HOME/go" ]; then
     export GOPATH="$HOME/go"
     export PATH="$GOPATH/bin:$PATH"
 fi
+
+# include mcfly setup if its present. https://github.com/cantino/mcfly
+if [ -x "$(which mcfly)" ]; then
+    eval "$(mcfly init bash)"
+fi

@@ -119,4 +119,4 @@ ci xsv
 ci zellij
 
 # Hurl is a command line tool that runs HTTP requests defined in a simple plain text format.
-ci hurl 
+#ci hurl 
