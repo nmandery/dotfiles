@@ -1,0 +1,9 @@
+[language-server.rust-analyzer.config]
+inlayHints.chainingHints.enable = false
+inlayHints.closingBraceHints.enable = false
+
+[language-server.rust-analyzer.config.check]
+command = "clippy"
+
+[language-server.rust-analyzer.config.cargo]
+features = "all"
